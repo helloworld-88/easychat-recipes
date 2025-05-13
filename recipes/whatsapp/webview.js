@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   let dbCache;
 
   const getMessages = () => {
@@ -26,7 +26,7 @@ module.exports = Ferdium => {
           }
         }
 
-        Ferdium.setBadge(unreadCount, unreadMutedCount);
+        Easychat.setBadge(unreadCount, unreadMutedCount);
       };
 
       query.addEventListener('error', event => {
@@ -57,12 +57,12 @@ module.exports = Ferdium => {
   };
 
   // inject webview hacking script
-  Ferdium.injectJSUnsafe(_path.default.join(__dirname, 'webview-unsafe.js'));
+  Easychat.injectJSUnsafe(_path.default.join(__dirname, 'webview-unsafe.js'));
 
   const getActiveDialogTitle = () => {
     const element = document.querySelector('header .emoji-texttt');
 
-    Ferdium.setDialogTitle(element ? element.textContent : '');
+    Easychat.setDialogTitle(element ? element.textContent : '');
   };
 
   const loopFunc = () => {
@@ -71,10 +71,10 @@ module.exports = Ferdium => {
   };
 
   window.addEventListener('beforeunload', async () => {
-    Ferdium.releaseServiceWorkers();
+    Easychat.releaseServiceWorkers();
   });
 
-  Ferdium.handleDarkMode(isEnabled => {
+  Easychat.handleDarkMode(isEnabled => {
     if (isEnabled) {
       document.body.classList.add('dark');
     } else {
@@ -82,7 +82,7 @@ module.exports = Ferdium => {
     }
   });
 
-  Ferdium.loop(loopFunc);
+  Easychat.loop(loopFunc);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

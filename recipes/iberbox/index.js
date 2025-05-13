@@ -1,1 +1,1 @@
-module.exports = Ferdium => class IberBox extends Ferdium {};
+module.exports = Easychat => class IberBox extends Easychat {};

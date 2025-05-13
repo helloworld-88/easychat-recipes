@@ -1,1 +1,1 @@
-module.exports = Ferdium => class Outreach extends Ferdium {};
+module.exports = Easychat => class Outreach extends Easychat {};

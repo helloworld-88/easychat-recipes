@@ -1,2 +1,2 @@
 // todo allow custom url
-module.exports = Ferdium => Ferdium;
+module.exports = Easychat => Easychat;

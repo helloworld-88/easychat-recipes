@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const telegramVersion = document
     .querySelector('meta[property="og:url"]')
     ?.getAttribute('content');
@@ -25,14 +25,14 @@ module.exports = (Ferdium, settings) => {
     );
 
     for (const badge of directCountSelector) {
-      directCount += Ferdium.safeParseInt(badge.textContent);
+      directCount += Easychat.safeParseInt(badge.textContent);
     }
 
     for (const badge of groupCountSelector) {
-      groupCount += Ferdium.safeParseInt(badge.textContent);
+      groupCount += Easychat.safeParseInt(badge.textContent);
     }
 
-    Ferdium.setBadge(directCount, groupCount);
+    Easychat.setBadge(directCount, groupCount);
   };
 
   const webKCount = () => {
@@ -45,7 +45,7 @@ module.exports = (Ferdium, settings) => {
       const subtitleBadge = element.querySelector('.dialog-subtitle-badge');
 
       if (subtitleBadge) {
-        const parsedValue = Ferdium.safeParseInt(subtitleBadge.textContent);
+        const parsedValue = Easychat.safeParseInt(subtitleBadge.textContent);
 
         if (element.dataset.peerId > 0) {
           directCount += parsedValue;
@@ -55,7 +55,7 @@ module.exports = (Ferdium, settings) => {
       }
     }
 
-    Ferdium.setBadge(directCount, groupCount);
+    Easychat.setBadge(directCount, groupCount);
   };
 
   const getMessages = () => {
@@ -73,7 +73,7 @@ module.exports = (Ferdium, settings) => {
       ? document.querySelector('.top .peer-title')
       : document.querySelector('.chat-list .ListItem .title > h3');
 
-    Ferdium.setDialogTitle(element ? element.textContent : '');
+    Easychat.setDialogTitle(element ? element.textContent : '');
   };
 
   const loopFunc = () => {
@@ -81,14 +81,14 @@ module.exports = (Ferdium, settings) => {
     getActiveDialogTitle();
   };
 
-  Ferdium.loop(loopFunc);
+  Easychat.loop(loopFunc);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
-  // This is a hack to get the telegram web app to open links in Ferdium (otherwise it asks to deeplink and open with any tg:// protocol handler)
+  // This is a hack to get the telegram web app to open links in Easychat (otherwise it asks to deeplink and open with any tg:// protocol handler)
   window.onload(() => {});
 
-  // TODO: See how this can be moved into the main ferdium app and sent as an ipc message for opening with a new window or same Ferdium recipe's webview based on user's preferences
+  // TODO: See how this can be moved into the main ferdium app and sent as an ipc message for opening with a new window or same Easychat recipe's webview based on user's preferences
   document.addEventListener(
     'click',
     event => {
@@ -100,7 +100,7 @@ module.exports = (Ferdium, settings) => {
           ? link.getAttribute('href')
           : button.getAttribute('title');
 
-        if (!Ferdium.isImage(link)) {
+        if (!Easychat.isImage(link)) {
           event.preventDefault();
           event.stopPropagation();
 
@@ -111,7 +111,7 @@ module.exports = (Ferdium, settings) => {
           ) {
             window.location.href = url;
           } else {
-            Ferdium.openNewWindow(url);
+            Easychat.openNewWindow(url);
           }
         }
       }

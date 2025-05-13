@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const selNotifications = document.querySelector(
       'div.tiktok-1deszxq-DivHeaderInboxContainer.e18kkhh40 > sup',
@@ -16,14 +16,14 @@ module.exports = Ferdium => {
     const countNotifications =
       selNotifications == null
         ? 0
-        : Ferdium.safeParseInt(selNotifications.outerText);
-    const countDM = selDM == null ? 0 : Ferdium.safeParseInt(selDM.outerText);
+        : Easychat.safeParseInt(selNotifications.outerText);
+    const countDM = selDM == null ? 0 : Easychat.safeParseInt(selDM.outerText);
 
     const count = countNotifications + countDM;
 
-    Ferdium.setBadge(count);
+    Easychat.setBadge(count);
   };
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

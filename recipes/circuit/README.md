@@ -1,3 +1,3 @@
-# Circuit EU for Ferdium
+# Circuit EU for Easychat
 
-Unofficial Ferdium recipe for [Circuit by Atos Unify](https://eu.yourcircuit.com/)
+Unofficial Easychat recipe for [Circuit by Atos Unify](https://eu.yourcircuit.com/)

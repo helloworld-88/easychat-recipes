@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const elementNotify = document.querySelectorAll('.notify');
     const elementFeed = document.querySelectorAll(
@@ -16,18 +16,18 @@ module.exports = Ferdium => {
 
     for (const element of elementNotify) {
       const splitText = element.title.split(':');
-      countNotify += Ferdium.safeParseInt(splitText[1]);
+      countNotify += Easychat.safeParseInt(splitText[1]);
     }
 
     for (const element of elementFeed) {
-      countFeed += Ferdium.safeParseInt(element.textContent);
+      countFeed += Easychat.safeParseInt(element.textContent);
     }
 
-    Ferdium.setBadge(countNotify, countFeed);
+    Easychat.setBadge(countNotify, countFeed);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
-  Ferdium.injectCSS(_path.default.join(__dirname, 'crpk-resources/fonts.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'crpk-resources/fonts.css'));
 };

@@ -12,7 +12,7 @@ setTimeout(() => {
   }
 }, 1000);
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const getMessages = () => {
     const elements = document.querySelectorAll('.CxUIE, .unread');
     let count = 0;
@@ -23,11 +23,11 @@ module.exports = (Ferdium, settings) => {
       }
     }
 
-    Ferdium.setBadge(count);
+    Easychat.setBadge(count);
   };
 
   window.addEventListener('beforeunload', async () => {
-    Ferdium.clearStorageData(settings.id, {
+    Easychat.clearStorageData(settings.id, {
       storages: [
         'appcache',
         'serviceworkers',
@@ -36,10 +36,10 @@ module.exports = (Ferdium, settings) => {
         'indexdb',
       ],
     });
-    Ferdium.releaseServiceWorkers();
+    Easychat.releaseServiceWorkers();
   });
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

@@ -1,1 +1,1 @@
-module.exports = Ferdium => Ferdium;
+module.exports = Easychat => Easychat;

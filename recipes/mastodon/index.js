@@ -1,5 +1,5 @@
-module.exports = Ferdium => {
-  class Mastodon extends Ferdium {
+module.exports = Easychat => {
+  class Mastodon extends Easychat {
     validateServer(URL) {
       const api = `${URL}`;
       return new Promise((resolve, reject) => {

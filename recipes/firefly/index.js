@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Firefly extends Ferdium {
+module.exports = Easychat =>
+  class Firefly extends Easychat {
     buildUrl(url) {
       return `${url}/`;
     }

@@ -4,24 +4,24 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let directCount = 0;
     let indirectCount = 0;
 
     const messageCountElement = document.querySelector('#Message-umi');
     if (messageCountElement) {
-      directCount = Ferdium.safeParseInt(messageCountElement.textContent);
+      directCount = Easychat.safeParseInt(messageCountElement.textContent);
     }
 
     const unreadChats = document.querySelectorAll('.has-unread');
     // unreadChats includes direct messages - do not count them
     indirectCount = unreadChats.length - directCount;
 
-    Ferdium.setBadge(directCount, indirectCount);
+    Easychat.setBadge(directCount, indirectCount);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

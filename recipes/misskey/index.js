@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Misskey extends Ferdium {
+module.exports = Easychat =>
+  class Misskey extends Easychat {
     constructor(...args) {
       let _temp;
       // eslint-disable-next-line constructor-super

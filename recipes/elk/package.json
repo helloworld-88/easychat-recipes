@@ -3,7 +3,7 @@
   "name": "Elk",
   "version": "1.1.1",
   "license": "MIT",
-  "repository": "https://github.com/jalil-salame/ferdium-elk-recipe",
+  "repository": "https://github.com/jalil-salame/easychat-elk-recipe",
   "config": {
     "serviceURL": "https://elk.zone/"
   }

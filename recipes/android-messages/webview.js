@@ -19,14 +19,14 @@ setTimeout(() => {
   }
 }, 1000);
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const getMessages = () => {
     const messages = document.querySelectorAll('.text-content.unread').length;
-    Ferdium.setBadge(messages);
+    Easychat.setBadge(messages);
   };
 
   window.addEventListener('beforeunload', async () => {
-    Ferdium.clearStorageData(settings.id, {
+    Easychat.clearStorageData(settings.id, {
       storages: [
         'appcache',
         'serviceworkers',
@@ -35,10 +35,10 @@ module.exports = (Ferdium, settings) => {
         'indexdb',
       ],
     });
-    Ferdium.releaseServiceWorkers();
+    Easychat.releaseServiceWorkers();
   });
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
   if (settings.isDarkModeEnabled) {
     localStorage.setItem('dark_mode_enabled', 'true');
@@ -46,5 +46,5 @@ module.exports = (Ferdium, settings) => {
     localStorage.setItem('dark_mode_enabled', 'false');
   }
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

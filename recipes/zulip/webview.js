@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   function getUnreadMentions() {
     const anchorWithMentionHref = document.querySelector(
       'a[href*="is/mentioned"]',
@@ -14,12 +14,12 @@ module.exports = Ferdium => {
 
     return unreadCountElement == null
       ? 0
-      : Ferdium.safeParseInt(unreadCountElement.textContent);
+      : Easychat.safeParseInt(unreadCountElement.textContent);
   }
 
   function getUnreadCount(eltId) {
     const elt = document.querySelectorAll(`#${eltId} + .unread_count`)[0];
-    return elt == null ? 0 : Ferdium.safeParseInt(elt.textContent);
+    return elt == null ? 0 : Easychat.safeParseInt(elt.textContent);
   }
 
   function getStreamsUnread() {
@@ -28,7 +28,7 @@ module.exports = Ferdium => {
 
     return unreadCountElement == null
       ? 0
-      : Ferdium.safeParseInt(unreadCountElement.textContent);
+      : Easychat.safeParseInt(unreadCountElement.textContent);
   }
 
   //document.querySelector('#show_all_private_messages + .unread_count')
@@ -44,10 +44,10 @@ module.exports = Ferdium => {
 
     const directMessages = unreadPrivate + unreadMentions;
 
-    Ferdium.setBadge(directMessages, streamUnread);
+    Easychat.setBadge(directMessages, streamUnread);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

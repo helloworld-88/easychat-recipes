@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class CustomWebsite extends Ferdium {
+module.exports = Easychat =>
+  class CustomWebsite extends Easychat {
     async validateUrl() {
       return true;
     }

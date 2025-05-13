@@ -4,9 +4,9 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
-    Ferdium.injectJSUnsafe(_path.default.join(__dirname, 'webview-unsafe.js'));
+    Easychat.injectJSUnsafe(_path.default.join(__dirname, 'webview-unsafe.js'));
   };
 
   // Zoho uses different URLs for different regions. Find out which region the account belongs to and redirect to the correct URL.
@@ -20,7 +20,7 @@ module.exports = Ferdium => {
   };
 
   window.addEventListener('load', redirectRegion);
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

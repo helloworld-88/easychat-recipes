@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     // get new conversations in My Queue
     const myQueue = $(
@@ -18,13 +18,13 @@ module.exports = Ferdium => {
       '.super-nav a.super-nav__item.js-from-super-to-nav[href^="/chat/box:missed"] .count',
     ).text();
 
-    // set Ferdium badge
+    // set Easychat badge
     // myQueue => New conversations in My Queue
     // missed => All missed conversations
-    Ferdium.setBadge(myQueue, missed);
+    Easychat.setBadge(myQueue, missed);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

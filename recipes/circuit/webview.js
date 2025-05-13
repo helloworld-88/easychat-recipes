@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     // Get value of <title> tag where in case of new messages the number of messages appear
     const title = document.querySelector('title');
@@ -15,11 +15,11 @@ module.exports = Ferdium => {
       const unread = match !== null && match.length > 0 ? match[0] : 0;
 
       // Set unread msgs badge
-      Ferdium.setBadge(Ferdium.safeParseInt(unread));
+      Easychat.setBadge(Easychat.safeParseInt(unread));
     }
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

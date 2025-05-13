@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   function getTasks() {
     let incompleteCount = 0;
 
@@ -14,14 +14,14 @@ module.exports = Ferdium => {
 
     if (countEls.length > 0) {
       for (const el of countEls) {
-        incompleteCount += Ferdium.safeParseInt(el.textContent);
+        incompleteCount += Easychat.safeParseInt(el.textContent);
       }
     }
 
-    Ferdium.setBadge(incompleteCount);
+    Easychat.setBadge(incompleteCount);
   }
 
-  Ferdium.loop(getTasks);
+  Easychat.loop(getTasks);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

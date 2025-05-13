@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Grammarly extends Ferdium {
+module.exports = Easychat =>
+  class Grammarly extends Easychat {
     async validateUrl() {
       return true;
     }

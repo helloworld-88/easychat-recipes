@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Pleroma extends Ferdium {
+module.exports = Easychat =>
+  class Pleroma extends Easychat {
     async validateUrl(url) {
       try {
         const resp = await window.fetch(`${url}/api/v1/instance`, {

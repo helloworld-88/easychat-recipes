@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   }
 });
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const getMessages = () => {
     const elements = document.querySelectorAll('.CxUIE, .unread');
     let count = 0;
@@ -23,14 +23,14 @@ module.exports = (Ferdium, settings) => {
       }
     }
 
-    Ferdium.setBadge(count);
+    Easychat.setBadge(count);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
   window.addEventListener('beforeunload', async () => {
-    Ferdium.clearStorageData(settings.id, { storages: ['serviceworkers'] });
+    Easychat.clearStorageData(settings.id, { storages: ['serviceworkers'] });
   });
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

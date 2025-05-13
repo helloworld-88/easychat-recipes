@@ -4,16 +4,16 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     $.get('/api/_/tickets?filter=unresolved', data => {
-      Ferdium.setBadge(data.tickets.length);
+      Easychat.setBadge(data.tickets.length);
     });
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
   /* block popups (prevents freshconnect from opening in a new window) */
   window.open = function (url, name) {

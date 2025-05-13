@@ -4,22 +4,22 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const newCountMatch = document
       .querySelector('a.h6[href^="/notifications?query="]')
       ?.textContent?.match(/\d+/);
-    Ferdium.setBadge(
-      Ferdium.safeParseInt(
+    Easychat.setBadge(
+      Easychat.safeParseInt(
         document.querySelector('li[data-item-id="inbox"] .Counter')
           ?.textContent,
-      ) + Ferdium.safeParseInt(newCountMatch ? newCountMatch[0] : 0),
+      ) + Easychat.safeParseInt(newCountMatch ? newCountMatch[0] : 0),
       document.querySelectorAll(
         '#AppHeader-notifications-button.AppHeader-button--hasIndicator, ' +
           '[data-target="notification-indicator.badge"]:not([hidden])',
       ).length,
     );
   };
-  Ferdium.loop(getMessages);
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.loop(getMessages);
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

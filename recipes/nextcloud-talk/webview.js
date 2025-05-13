@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     // With `// Legacy ` are marked those selectors that were working for some
     // Nextcloud version before 27 (24 or 25).
@@ -17,19 +17,19 @@ module.exports = Ferdium => {
       '.app-navigation-entry__counter, ' + // Legacy
         `${counterBubble}:not(${counterBubble}--highlighted)`, // Nextcloud 27
     )) {
-      indirect += Ferdium.safeParseInt(counter?.textContent.trim());
+      indirect += Easychat.safeParseInt(counter?.textContent.trim());
     }
 
     if (document.title.startsWith('*')) {
       indirect += 1;
     }
 
-    Ferdium.setBadge(
+    Easychat.setBadge(
       // Try to use the unread conversations count retrieved from the left
       // sidebar, otherwise check Talk specific notifications
       directFromLeftSideBar > 0
         ? directFromLeftSideBar
-        : Ferdium.safeParseInt(
+        : Easychat.safeParseInt(
             document
               .querySelector(
                 '.notifications .notification-wrapper, ' + // Legacy
@@ -46,6 +46,6 @@ module.exports = Ferdium => {
     );
   };
 
-  Ferdium.loop(getMessages);
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.loop(getMessages);
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

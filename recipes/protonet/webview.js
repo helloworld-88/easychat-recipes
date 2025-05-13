@@ -4,19 +4,19 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
-    const unreadPrivateMessages = Ferdium.safeParseInt(
+    const unreadPrivateMessages = Easychat.safeParseInt(
       $('.messages .unread-meeps').text(),
     );
-    const unreadGroupMessages = Ferdium.safeParseInt(
+    const unreadGroupMessages = Easychat.safeParseInt(
       $('.today .unread-meeps').text(),
     );
 
-    Ferdium.setBadge(unreadPrivateMessages + unreadGroupMessages);
+    Easychat.setBadge(unreadPrivateMessages + unreadGroupMessages);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

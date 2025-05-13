@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const DIRECT_MESSAGES_INDIVIDUAL =
     '#sidebar-left .unread-title .DirectChannel__profile-picture';
   const DIRECT_MESSAGES_GROUP = '#sidebar-left .unread-title .status--group';
@@ -33,13 +33,13 @@ module.exports = Ferdium => {
       document.querySelectorAll('.team-wrapper .unread').length -
       teamDirectMessages;
 
-    Ferdium.setBadge(
+    Easychat.setBadge(
       directMessages + teamDirectMessages,
       allMessages + teamMessages,
     );
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

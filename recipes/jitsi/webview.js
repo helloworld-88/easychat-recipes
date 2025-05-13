@@ -6,7 +6,7 @@ const _path = _interopRequireDefault(require('path'));
 
 const NOTIFICATION_BADGE_CLASS = '.badge-round';
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const badges = [...document.querySelectorAll(NOTIFICATION_BADGE_CLASS)];
     const messages = badges.reduce(
@@ -14,10 +14,10 @@ module.exports = Ferdium => {
       0,
     );
 
-    Ferdium.setBadge(messages);
+    Easychat.setBadge(messages);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Tweetdeck extends Ferdium {
+module.exports = Easychat =>
+  class Tweetdeck extends Easychat {
     constructor(...args) {
       let _temp;
 

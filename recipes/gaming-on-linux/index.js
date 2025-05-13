@@ -1,1 +1,1 @@
-module.exports = Ferdium => class GamingOnLinux extends Ferdium {};
+module.exports = Easychat => class GamingOnLinux extends Easychat {};

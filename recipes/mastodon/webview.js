@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   let latestStatement = $('.status time').attr('datetime');
   let latestNotify = $($('.notification__message span').get(0)).text();
 
@@ -27,10 +27,10 @@ module.exports = Ferdium => {
       unread = 1;
     }
 
-    Ferdium.setBadge(reply, unread);
+    Easychat.setBadge(reply, unread);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

@@ -1,8 +1,8 @@
-module.exports = Ferdium =>
-  class Jitsi extends Ferdium {
+module.exports = Easychat =>
+  class Jitsi extends Easychat {
     overrideUserAgent() {
       return window.navigator.userAgent
-        .replaceAll(/(Ferdium|Electron)\/\S+ \([^)]+\)/g, '')
+        .replaceAll(/(Easychat|Electron)\/\S+ \([^)]+\)/g, '')
         .trim();
     }
   };

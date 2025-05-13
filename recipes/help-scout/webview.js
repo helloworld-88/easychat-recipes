@@ -5,9 +5,9 @@ function _interopRequireDefault(obj) {
 const _path = _interopRequireDefault(require('path'));
 
 /**
- * Help Scout integration plugin for Ferdium
+ * Help Scout integration plugin for Easychat
  *
- * @summary     Integrates Help Scout into the Ferdium application
+ * @summary     Integrates Help Scout into the Easychat application
  * @since       1.2.0
  */
 
@@ -46,15 +46,15 @@ const ticketScripts = {
 };
 
 /**
- * The core Ferdium message handler
+ * The core Easychat message handler
  *
  * @since       1.0.0
  */
-module.exports = Ferdium => {
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+module.exports = Easychat => {
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
   /**
-   * Get messages for the Ferdium loop
+   * Get messages for the Easychat loop
    *
    * @since       1.0.0
    * @return      {void}
@@ -111,10 +111,10 @@ module.exports = Ferdium => {
       total = `${total}/${unassigned}`;
     }
 
-    Ferdium.setBadge(total);
+    Easychat.setBadge(total);
   }
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 };
 
 /**

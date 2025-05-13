@@ -1,8 +1,8 @@
-module.exports = Ferdium =>
-  class Outlook extends Ferdium {
+module.exports = Easychat =>
+  class Outlook extends Easychat {
     overrideUserAgent() {
       return window.navigator.userAgent
-        .replaceAll(/(Ferdium|Electron)\/\S+ \([^)]+\)/g, '')
+        .replaceAll(/(Easychat|Electron)\/\S+ \([^)]+\)/g, '')
         .trim();
     }
   };

@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const elements = document.querySelectorAll(
       '#HeaderUserActions--Messages > a > span',
@@ -12,18 +12,18 @@ module.exports = Ferdium => {
     let count = 0;
 
     if (elements[0]) {
-      count = Ferdium.safeParseInt(elements[0].textContent);
+      count = Easychat.safeParseInt(elements[0].textContent);
     }
 
-    Ferdium.setBadge(count);
+    Easychat.setBadge(count);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
   // Use CSS to hide Google Ads
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
-  Ferdium.handleDarkMode(isEnabled => {
+  Easychat.handleDarkMode(isEnabled => {
     // Open dropdown menu if not already open
     const menu = document.querySelector('#USER_DROPDOWN_ID');
     if (menu && menu.getAttribute('aria-expanded') === 'false') {

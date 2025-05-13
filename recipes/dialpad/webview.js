@@ -4,21 +4,21 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let unreadCount = 0;
     $.each(
       $('[data-qa-has-unreads]'),
       (idx, item) =>
-        (unreadCount += Ferdium.safeParseInt(
+        (unreadCount += Easychat.safeParseInt(
           item.attributes['data-qa-has-unreads'].value,
         )),
     );
 
-    Ferdium.setBadge(unreadCount);
+    Easychat.setBadge(unreadCount);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'whitemode.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'whitemode.css'));
 };

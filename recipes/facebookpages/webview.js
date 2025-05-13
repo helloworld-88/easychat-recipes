@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = (Ferdium, options) => {
+module.exports = (Easychat, options) => {
   const getMessages = () => {
     let messages = 0;
     const element = document.querySelector(
@@ -12,13 +12,13 @@ module.exports = (Ferdium, options) => {
     );
 
     if (element) {
-      messages = Ferdium.safeParseInt(element.textContent);
+      messages = Easychat.safeParseInt(element.textContent);
     }
 
-    Ferdium.setBadge(messages);
+    Easychat.setBadge(messages);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
   setTimeout(() => {
     if (
@@ -34,5 +34,5 @@ module.exports = (Ferdium, options) => {
     }
   }, 500);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

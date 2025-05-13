@@ -1,3 +1,3 @@
-// just pass through ferdium
+// just pass through easychat
 
-module.exports = Ferdium => Ferdium;
+module.exports = Easychat => Easychat;

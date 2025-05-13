@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Mattermost extends Ferdium {
+module.exports = Easychat =>
+  class Mattermost extends Easychat {
     async validateUrl(url) {
       try {
         const resp = await window.fetch(url, {

@@ -1,1 +1,1 @@
-module.exports = Ferdium => class MetaBusinessSuite extends Ferdium {};
+module.exports = Easychat => class MetaBusinessSuite extends Easychat {};

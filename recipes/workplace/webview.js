@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let direct = 0;
     let indirect = 0;
@@ -12,7 +12,7 @@ module.exports = Ferdium => {
     const notifications = document.querySelector('#notifications span span');
 
     if (notifications) {
-      indirect = Ferdium.safeParseInt(notifications.textContent);
+      indirect = Easychat.safeParseInt(notifications.textContent);
     }
 
     if (chatsElement) {
@@ -24,25 +24,25 @@ module.exports = Ferdium => {
         const chatMessages = chatsElement.querySelector('span');
 
         if (chatMessages) {
-          direct = Ferdium.safeParseInt(chatMessages.textContent);
+          direct = Easychat.safeParseInt(chatMessages.textContent);
         }
       }
     }
 
-    Ferdium.setBadge(direct, indirect);
+    Easychat.setBadge(direct, indirect);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'workplace.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'workplace.css'));
 
   localStorage._cs_desktopNotifsEnabled = JSON.stringify({
     __t: Date.now(),
     __v: true,
   });
 
-  if (typeof Ferdium.onNotify === 'function') {
-    Ferdium.onNotify(notification => {
+  if (typeof Easychat.onNotify === 'function') {
+    Easychat.onNotify(notification => {
       if (typeof notification.title !== 'string') {
         notification.title =
           ((notification.title.props || {}).content || [])[0] || 'Work Chat';

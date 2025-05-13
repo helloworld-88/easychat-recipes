@@ -1,1 +1,1 @@
-module.exports = Ferdium => class Pixelfed extends Ferdium {};
+module.exports = Easychat => class Pixelfed extends Easychat {};

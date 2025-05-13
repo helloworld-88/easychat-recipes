@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let count = 0;
 
@@ -13,11 +13,11 @@ module.exports = Ferdium => {
       '.main-header .navbar .dropdown.messages-menu .ticktac span.label',
     );
     if (label !== undefined) {
-      count = Ferdium.safeParseInt(label.textContent);
+      count = Easychat.safeParseInt(label.textContent);
     }
 
-    // set Ferdium badge
-    Ferdium.setBadge(count);
+    // set Easychat badge
+    Easychat.setBadge(count);
   };
 
   document.addEventListener('click', e => {
@@ -30,7 +30,7 @@ module.exports = Ferdium => {
     }
   });
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

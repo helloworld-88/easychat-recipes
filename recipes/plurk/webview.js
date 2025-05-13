@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let direct = 0;
 
@@ -12,16 +12,16 @@ module.exports = Ferdium => {
     const re = document.querySelector('#noti_re_count');
 
     if (np) {
-      direct += Ferdium.safeParseInt(np.textContent);
+      direct += Easychat.safeParseInt(np.textContent);
     }
     if (re) {
-      direct += Ferdium.safeParseInt(re.textContent);
+      direct += Easychat.safeParseInt(re.textContent);
     }
 
-    Ferdium.setBadge(direct);
+    Easychat.setBadge(direct);
   };
 
-  Ferdium.loop(getMessages, 10_000);
+  Easychat.loop(getMessages, 10_000);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

@@ -13,16 +13,16 @@ if (process.argv.length < 3) {
 For example:
 pnpm create WhatsApp
 pnpm create "Google Hangouts"
-You can set "Folder name" to "FerdiumDev" to use Ferdium's development instance instead:
+You can set "Folder name" to "EasychatDev" to use Easychat's development instance instead:
 
-pnpm create WhatsApp FerdiumDev
+pnpm create WhatsApp EasychatDev
 `);
   throw new Error('Please provide the correct number of args!');
 }
 
 const recipeName = process.argv[2];
 const recipe = recipeName.toLowerCase().replaceAll(/\s/g, '-');
-const folderName = process.argv[3] || 'Ferdium';
+const folderName = process.argv[3] || 'Easychat';
 const filesThatNeedTextReplace = ['package.json', 'index.js', 'webview.js'];
 
 const toPascalCase = str => {
@@ -46,7 +46,7 @@ const pascalCasedName = toPascalCase(recipe); // PascalCased recipe ID only cont
   process.env.APPDATA || (
     // Check if this script runs on Windows
     process.platform === 'win32'
-      ? `${process.env.USERPROFILE}\\AppData\\Roaming\\Ferdium\\recipes\\dev`
+      ? `${process.env.USERPROFILE}\\AppData\\Roaming\\Easychat\\recipes\\dev`
     // If not, check for Darwin
     : process.platform === 'darwin'
       ? `${process.env.HOME}/Library/Application Support`
@@ -61,7 +61,7 @@ const pascalCasedName = toPascalCase(recipe); // PascalCased recipe ID only cont
   // Make sure dev recipe folder exists
   if (!fs.existsSync(recipesFolder)) {
     console.log(
-      `Couldn't find your recipe folder (${recipesFolder}). Is Ferdium installed?`,
+      `Couldn't find your recipe folder (${recipesFolder}). Is Easychat installed?`,
     );
     return;
   }
@@ -93,7 +93,7 @@ const pascalCasedName = toPascalCase(recipe); // PascalCased recipe ID only cont
   console.log(`✅ Successfully created your recipe.
 
 What's next?
-- Make sure you restart Ferdium in order for the recipe to show up
-- Customise "webview.js", "package.json" and "icon.svg" (see https://github.com/ferdium/ferdium-recipes/blob/main/docs/integration.md#recipe-structure)
-- Publish your recipe (see https://github.com/ferdium/ferdium-recipes/blob/main/docs/integration.md#publishing)`);
+- Make sure you restart Easychat in order for the recipe to show up
+- Customise "webview.js", "package.json" and "icon.svg" (see https://github.com/helloworld-88/easychat-recipes/blob/main/docs/integration.md#recipe-structure)
+- Publish your recipe (see https://github.com/helloworld-88/easychat-recipes/blob/main/docs/integration.md#publishing)`);
 })();

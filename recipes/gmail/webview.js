@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   // if the user is on gmail's landing page, go to the login page.
   if (
     location.hostname === 'www.google.com' &&
@@ -33,11 +33,11 @@ module.exports = Ferdium => {
             if (unreadCount.includes(':')) {
               const counts = unreadCount
                 .split(':')
-                .map(s => Ferdium.safeParseInt(s.replaceAll(/[^\p{N}]/gu, '')));
+                .map(s => Easychat.safeParseInt(s.replaceAll(/[^\p{N}]/gu, '')));
               countImportant = counts[0];
               countNonImportant = counts[1] - counts[0];
             } else {
-              countImportant = Ferdium.safeParseInt(
+              countImportant = Easychat.safeParseInt(
                 unreadCount.replaceAll(/[^\p{N}]/gu, ''),
               );
             }
@@ -49,16 +49,16 @@ module.exports = Ferdium => {
     if (spaceAndChatBadges.length > 0) {
       const arr = [...spaceAndChatBadges];
       const spaceAndChatCount = arr.reduce(
-        (acc, e) => Ferdium.safeParseInt(e.getInnerHTML()) + acc,
+        (acc, e) => Easychat.safeParseInt(e.getInnerHTML()) + acc,
         0,
       );
       countImportant += spaceAndChatCount;
     }
 
-    Ferdium.setBadge(countImportant, countNonImportant);
+    Easychat.setBadge(countImportant, countNonImportant);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

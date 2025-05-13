@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Zulip extends Ferdium {
+module.exports = Easychat =>
+  class Zulip extends Easychat {
     async validateUrl(url) {
       const baseUrl = new window.URL(url);
       const apiVersion = 'api/v1';

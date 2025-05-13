@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const badges = document
       .querySelector('home-assistant')
@@ -12,15 +12,15 @@ module.exports = Ferdium => {
       .shadowRoot.querySelector('ha-sidebar')
       .shadowRoot.querySelectorAll('.notification-badge');
     if (badges.length > 0) {
-      const count = Ferdium.safeParseInt(
+      const count = Easychat.safeParseInt(
         badges[0].textContent.replaceAll(/[^\p{N}]/gu, ''),
       );
-      Ferdium.setBadge(count);
+      Easychat.setBadge(count);
     } else {
-      Ferdium.setBadge(0);
+      Easychat.setBadge(0);
     }
   };
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

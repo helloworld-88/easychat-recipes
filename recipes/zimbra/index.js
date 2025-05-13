@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Zimbra extends Ferdium {
+module.exports = Easychat =>
+  class Zimbra extends Easychat {
     async validateUrl() {
       return true;
     }

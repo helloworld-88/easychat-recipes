@@ -93,15 +93,15 @@ Please note that the fields `id`, `name`, `version` and `config` are mandatory.
 This is your "backend" code. Right now the options are very limited and most of the services don't need a custom handling here. If your service is relatively straight forward and has a static URL eg. _messenger.com_, _`[TEAMID]`.slack.com_ or _web.skype.com_ all you need to do to return the Ferdium Class:
 
 ```js
-module.exports = Ferdium => Ferdium;
+module.exports = Easychat => Easychat;
 ```
 
 If your service can be hosted on custom servers, you can validate the given URL to detect if it's your server and not e.g. google.com. To enable validation you can override the function `validateServer`
 
 ```js
 // RocketChat integration
-module.exports = Ferdium =>
-  class RocketChat extends Ferdium {
+module.exports = Easychat =>
+  class RocketChat extends Easychat {
     async validateUrl(url) {
       try {
         const resp = await window.fetch(`${url}/api/info`, {

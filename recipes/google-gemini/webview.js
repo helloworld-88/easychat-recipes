@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   if (
     location.hostname === 'workspace.google.com' &&
     location.href.includes('products/gemini/')
@@ -13,9 +13,9 @@ module.exports = Ferdium => {
       'https://accounts.google.com/AccountChooser?continue=https://gemini.google.com/u/0/';
   }
 
-  Ferdium.handleDarkMode(isEnabled => {
+  Easychat.handleDarkMode(isEnabled => {
     localStorage.setItem('theme', isEnabled ? 'dark' : 'light');
   });
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

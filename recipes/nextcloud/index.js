@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class Nextcloud extends Ferdium {
+module.exports = Easychat =>
+  class Nextcloud extends Easychat {
     buildUrl(url) {
       return `${url}/`;
     }

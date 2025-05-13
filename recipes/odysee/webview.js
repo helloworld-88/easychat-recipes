@@ -4,20 +4,20 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   function getNotifications() {
     let unreadNotifications = 0;
     for (const notificationCounterElement of document.querySelectorAll(
       '.notification__count',
     )) {
-      unreadNotifications += Ferdium.safeParseInt(
+      unreadNotifications += Easychat.safeParseInt(
         notificationCounterElement.textContent,
       );
     }
 
-    Ferdium.setBadge(unreadNotifications);
+    Easychat.setBadge(unreadNotifications);
   }
-  Ferdium.loop(getNotifications);
+  Easychat.loop(getNotifications);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

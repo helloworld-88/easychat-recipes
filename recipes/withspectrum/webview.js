@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const element = document.querySelector('[href="/notifications"] > div');
     const content = window
@@ -13,10 +13,10 @@ module.exports = Ferdium => {
       .match(/\d+/);
     const notifications = Number(content);
 
-    Ferdium.setBadge(notifications);
+    Easychat.setBadge(notifications);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

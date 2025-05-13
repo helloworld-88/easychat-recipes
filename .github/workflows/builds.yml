@@ -19,7 +19,7 @@ on:
 
 jobs:
   build:
-    name: Ferdium Recipes Build
+    name: Easychat Recipes Build
     runs-on: ubuntu-24.04
     steps:
       - name: Print latest commit

@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     if (document.location.href === 'https://app.hey.com/') {
       let screener = 0;
@@ -14,7 +14,7 @@ module.exports = Ferdium => {
         const text = document.querySelectorAll('.btn--icon-screener')[0]
           .textContent;
         if (text) {
-          const parsedText = Ferdium.safeParseInt(/\d+/.exec(text));
+          const parsedText = Easychat.safeParseInt(/\d+/.exec(text));
           screener = parsedText[0];
         }
       }
@@ -29,11 +29,11 @@ module.exports = Ferdium => {
         }
       }
 
-      Ferdium.setBadge(unread, screener);
+      Easychat.setBadge(unread, screener);
     }
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

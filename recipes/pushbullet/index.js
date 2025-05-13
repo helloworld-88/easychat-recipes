@@ -1,5 +1,5 @@
-module.exports = Ferdium =>
-  class PushBullet extends Ferdium {
+module.exports = Easychat =>
+  class PushBullet extends Easychat {
     constructor(...args) {
       let _temp;
 

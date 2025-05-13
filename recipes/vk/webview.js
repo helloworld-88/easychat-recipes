@@ -4,15 +4,15 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let directs = 0;
     const element = document.querySelectorAll('.left_count');
     if (element.length > 0) {
-      directs = Ferdium.safeParseInt(element[0].textContent);
+      directs = Easychat.safeParseInt(element[0].textContent);
     }
 
-    Ferdium.setBadge(directs);
+    Easychat.setBadge(directs);
   };
 
   const getActiveDialogTitle = () => {
@@ -23,7 +23,7 @@ module.exports = Ferdium => {
       document.querySelector('.im-page_history-show ._im_page_peer_name'),
     ].find(Boolean);
 
-    Ferdium.setDialogTitle(element ? element.textContent : null);
+    Easychat.setDialogTitle(element ? element.textContent : null);
   };
 
   const loopFunc = () => {
@@ -31,7 +31,7 @@ module.exports = Ferdium => {
     getActiveDialogTitle();
   };
 
-  Ferdium.loop(loopFunc);
+  Easychat.loop(loopFunc);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

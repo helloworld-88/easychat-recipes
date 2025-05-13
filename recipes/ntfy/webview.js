@@ -4,19 +4,19 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const msgRaw = document.title.match(/\(\d*\)/);
     let messages = 0;
 
     if (msgRaw) {
-      messages = Ferdium.safeParseInt(msgRaw[0].slice(1));
+      messages = Easychat.safeParseInt(msgRaw[0].slice(1));
     }
 
-    Ferdium.setBadge(messages, 0);
+    Easychat.setBadge(messages, 0);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

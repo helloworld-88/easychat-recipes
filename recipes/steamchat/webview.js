@@ -4,21 +4,21 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const getMessages = () => {
     // get new msg count
     let count = 0;
     const counters = document.querySelectorAll('[class*=FriendMessageCount]');
     Array.prototype.filter.call(counters, countValue => {
       if (countValue) {
-        count += Ferdium.safeParseInt(countValue.textContent);
+        count += Easychat.safeParseInt(countValue.textContent);
       }
     });
 
     const indirectMessages = document.querySelectorAll(
       '[class*=ChatUnreadMessageIndicator]',
     ).length;
-    Ferdium.setBadge(count, indirectMessages);
+    Easychat.setBadge(count, indirectMessages);
 
     // force scroll to bottom of chat window
     const chatBoxes = document.querySelectorAll('.chat_dialog');
@@ -34,11 +34,11 @@ module.exports = (Ferdium, settings) => {
     }
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
-  // TODO: See how this can be moved into the main ferdium app and sent as an ipc message for opening with a new window or same Ferdium recipe's webview based on user's preferences
+  // TODO: See how this can be moved into the main ferdium app and sent as an ipc message for opening with a new window or same Easychat recipe's webview based on user's preferences
   document.addEventListener(
     'click',
     event => {
@@ -56,7 +56,7 @@ module.exports = (Ferdium, settings) => {
         if (settings.trapLinkClicks === true) {
           window.location.href = url;
         } else {
-          Ferdium.openNewWindow(url);
+          Easychat.openNewWindow(url);
         }
       }
     },

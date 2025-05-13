@@ -1,8 +1,8 @@
-module.exports = Ferdium =>
-  class Messenger extends Ferdium {
+module.exports = Easychat =>
+  class Messenger extends Easychat {
     overrideUserAgent() {
       return window.navigator.userAgent.replaceAll(
-        /(Ferdium|Electron)(\S+\s)/g,
+        /(Easychat|Electron)(\S+\s)/g,
         '',
       );
     }

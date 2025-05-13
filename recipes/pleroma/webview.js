@@ -142,30 +142,30 @@ class LogoUpdater {
   }
 }
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     let directCount = 0;
     const matchArr = document.title.match(titleRegex);
     if (matchArr) {
-      directCount = Ferdium.safeParseInt(matchArr[1]);
+      directCount = Easychat.safeParseInt(matchArr[1]);
     }
-    Ferdium.setBadge(directCount);
+    Easychat.setBadge(directCount);
   };
 
   getInstanceLogo().then(
     ({ logo, logoMask }) => {
       const updater = new LogoUpdater(logo, logoMask);
-      Ferdium.loop(() => {
+      Easychat.loop(() => {
         getMessages();
         if (updater.update()) {
-          Ferdium.setAvatarImage(updater.toDataURL());
+          Easychat.setAvatarImage(updater.toDataURL());
         }
       });
     },
     error => {
       // eslint-disable-next-line no-console
       console.log('Failed to load instance logo', error);
-      Ferdium.loop(getMessages);
+      Easychat.loop(getMessages);
     },
   );
 };

@@ -4,12 +4,12 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   // Inject css
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
   // Get notifications
-  Ferdium.loop(() => {
+  Easychat.loop(() => {
     const notifications = document
       .querySelectorAll('[href$=notifications]')
       .item(0);
@@ -18,8 +18,8 @@ module.exports = Ferdium => {
       return;
     }
     // Assume first element contains the number of notifications
-    const parsedValue = Ferdium.safeParseInt(notifications.outerText);
+    const parsedValue = Easychat.safeParseInt(notifications.outerText);
     // Set to parsed value
-    Ferdium.setBadge(parsedValue);
+    Easychat.setBadge(parsedValue);
   });
 };

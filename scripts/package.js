@@ -17,7 +17,7 @@ const pkgVersionChangedMatcher = /\n\+.*version.*/;
 // Publicly availible link to this repository's recipe folder
 // Used for generating public icon URLs
 const repo =
-  'https://cdn.jsdelivr.net/gh/ferdium/ferdium-recipes@main/recipes/';
+  'https://cdn.jsdelivr.net/gh/helloworld-88/easychat-recipes@main/recipes/';
 
 // Helper: Compress src folder into dest file
 const compress = (src, dest) =>

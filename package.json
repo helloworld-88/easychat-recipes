@@ -1,5 +1,5 @@
 {
-  "name": "ferdium-recipes",
+  "name": "easychat-recipes",
   "version": "1.0.1",
   "directories": {
     "doc": "docs"
@@ -27,18 +27,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ferdium/ferdium-recipes.git"
+    "url": "git+https://github.com/helloworld-88/easychat-recipes.git"
   },
   "keywords": [
-    "ferdium",
+    "easychat",
     "recipes"
   ],
-  "author": "Ferdium Contributors",
+  "author": "easychat Contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ferdium/ferdium-recipes/issues"
+    "url": "https://github.com/helloworld-88/easychat-recipes/issues"
   },
-  "homepage": "https://github.com/ferdium/ferdium-recipes",
+  "homepage": "https://github.com/helloworld-88/easychat-recipes",
   "devDependencies": {
     "@types/targz": "1.0.4",
     "all-contributors-cli": "6.26.1",

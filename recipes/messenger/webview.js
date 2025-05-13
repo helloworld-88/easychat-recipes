@@ -14,7 +14,7 @@ function hideInstallMessage() {
   }
 }
 
-module.exports = (Ferdium, settings) => {
+module.exports = (Easychat, settings) => {
   const getMessages = () => {
     let count = 0;
     let newMessengerUI = false;
@@ -30,7 +30,7 @@ module.exports = (Ferdium, settings) => {
         newMessengerUI = true;
         const match = elem.match(/(\d+)/g);
         if (match) {
-          count += Ferdium.safeParseInt(match[0]);
+          count += Easychat.safeParseInt(match[0]);
         }
       }
     }
@@ -61,11 +61,11 @@ module.exports = (Ferdium, settings) => {
        */
       const messageRequestsElement = document.querySelector('._5nxf');
       if (messageRequestsElement) {
-        count += Ferdium.safeParseInt(messageRequestsElement.textContent);
+        count += Easychat.safeParseInt(messageRequestsElement.textContent);
       }
     }
 
-    Ferdium.setBadge(count);
+    Easychat.setBadge(count);
   };
 
   const loopRoutine = () => {
@@ -73,9 +73,9 @@ module.exports = (Ferdium, settings) => {
     hideInstallMessage();
   };
 
-  Ferdium.loop(loopRoutine);
+  Easychat.loop(loopRoutine);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 
   localStorage.setItem(
     '_cs_desktopNotifsEnabled',
@@ -85,8 +85,8 @@ module.exports = (Ferdium, settings) => {
     }),
   );
 
-  if (typeof Ferdium.onNotify === 'function') {
-    Ferdium.onNotify(notification => {
+  if (typeof Easychat.onNotify === 'function') {
+    Easychat.onNotify(notification => {
       if (typeof notification.title !== 'string') {
         notification.title =
           ((notification.title.props || {}).content || [])[0] || 'Messenger';
@@ -117,10 +117,10 @@ module.exports = (Ferdium, settings) => {
         event.stopPropagation();
 
         if (url.includes('fbsbx.com') || settings.trapLinkClicks === true) {
-          // 'fbsbx.com is Facebook file hosting service. Always open file downloads in Ferdium.
+          // 'fbsbx.com is Facebook file hosting service. Always open file downloads in Easychat.
           window.location.href = url;
         } else {
-          Ferdium.openNewWindow(url);
+          Easychat.openNewWindow(url);
         }
       }
     },

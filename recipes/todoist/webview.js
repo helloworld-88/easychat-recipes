@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   function getTasks() {
     let todayCount = 0;
     let inboxCount = 0;
@@ -16,17 +16,17 @@ module.exports = Ferdium => {
     );
 
     if (todayElement) {
-      todayCount = Ferdium.safeParseInt(todayElement.textContent);
+      todayCount = Easychat.safeParseInt(todayElement.textContent);
     }
 
     if (inboxElement) {
-      inboxCount = Ferdium.safeParseInt(inboxElement.textContent);
+      inboxCount = Easychat.safeParseInt(inboxElement.textContent);
     }
 
-    Ferdium.setBadge(inboxCount, todayCount);
+    Easychat.setBadge(inboxCount, todayCount);
   }
 
-  Ferdium.loop(getTasks);
+  Easychat.loop(getTasks);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

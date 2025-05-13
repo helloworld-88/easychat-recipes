@@ -12,14 +12,14 @@ const waitFor = (condition, callback) => {
 const showModal = text => {
   modal.querySelector('p').textContent = text;
   updates += 1;
-  window.ferdium.setBadge(updates);
+  window.easychat.setBadge(updates);
   modal.classList.add('open');
 };
 
 const hideModal = () => {
   modal.querySelector('p').textContent = '';
   updates -= 1;
-  window.ferdium.setBadge(updates);
+  window.easychat.setBadge(updates);
   modal.classList.remove('open');
 };
 

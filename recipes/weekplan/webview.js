@@ -4,7 +4,7 @@ function _interopRequireDefault(obj) {
 
 const _path = _interopRequireDefault(require('path'));
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const events = document
       .querySelectorAll('.today')[0]
@@ -19,10 +19,10 @@ module.exports = Ferdium => {
       .querySelectorAll('.task-section')[0]
       .querySelectorAll('.droppable')[0].children[0].childElementCount;
 
-    Ferdium.setBadge(events + tasks);
+    Easychat.setBadge(events + tasks);
   };
 
-  Ferdium.loop(getMessages);
+  Easychat.loop(getMessages);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

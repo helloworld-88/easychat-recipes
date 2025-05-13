@@ -7,7 +7,7 @@ const _path = _interopRequireDefault(require('path'));
 const SELECTOR_CHANNELS_UNREAD =
   '.p-channel_sidebar__channel--unread:not(.p-channel_sidebar__channel--muted)';
 
-module.exports = Ferdium => {
+module.exports = Easychat => {
   const getMessages = () => {
     const directMessages = document.querySelectorAll(
       `${SELECTOR_CHANNELS_UNREAD} .p-channel_sidebar__badge, .p-channel_sidebar__link--unread:not([data-sidebar-link-id="Punreads"]):not([data-sidebar-link-id="Pdrafts"]):not([data-sidebar-link-id="Pdms"]):not([data-sidebar-link-id="Ppaid-benefits"])`,
@@ -15,7 +15,7 @@ module.exports = Ferdium => {
     const allMessages =
       document.querySelectorAll(SELECTOR_CHANNELS_UNREAD).length -
       directMessages;
-    Ferdium.setBadge(directMessages, allMessages);
+    Easychat.setBadge(directMessages, allMessages);
   };
 
   const getActiveDialogTitle = () => {
@@ -23,7 +23,7 @@ module.exports = Ferdium => {
       '.p-channel_sidebar__channel--selected .p-channel_sidebar__name',
     );
 
-    Ferdium.setDialogTitle(
+    Easychat.setDialogTitle(
       element && element.firstChild ? element.firstChild.textContent : null,
     );
   };
@@ -33,7 +33,7 @@ module.exports = Ferdium => {
     getActiveDialogTitle();
   };
 
-  Ferdium.loop(loopFunc);
+  Easychat.loop(loopFunc);
 
   const getTeamIcon = function getTeamIcon(count = 0) {
     let countTeamIconCheck = count;
@@ -73,7 +73,7 @@ module.exports = Ferdium => {
     countTeamIconCheck += 1;
 
     if (bgUrl) {
-      Ferdium.setAvatarImage(bgUrl);
+      Easychat.setAvatarImage(bgUrl);
     } else if (countTeamIconCheck <= 5) {
       setTimeout(() => {
         getTeamIcon(countTeamIconCheck + 1);
@@ -85,5 +85,5 @@ module.exports = Ferdium => {
     getTeamIcon();
   }, 4000);
 
-  Ferdium.injectCSS(_path.default.join(__dirname, 'service.css'));
+  Easychat.injectCSS(_path.default.join(__dirname, 'service.css'));
 };

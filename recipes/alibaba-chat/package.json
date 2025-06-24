@@ -1,9 +1,0 @@
-{
-  "id": "alibaba-chat",
-  "name": "Alibaba Chat",
-  "version": "1.0.1",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://message.alibaba.com/message/messenger.htm"
-  }
-}

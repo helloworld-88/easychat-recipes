@@ -1,9 +1,0 @@
-{
-  "id": "poe",
-  "name": "poe",
-  "version": "1.0.1",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://poe.com/"
-  }
-}

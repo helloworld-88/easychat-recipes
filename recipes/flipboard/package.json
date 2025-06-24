@@ -1,9 +1,0 @@
-{
-  "id": "flipboard",
-  "name": "Flipboard",
-  "version": "1.0.0",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://flipboard.com"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "id": "workflowy",
-  "name": "WorkFlowy",
-  "version": "1.2.1",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://workflowy.com"
-  }
-}

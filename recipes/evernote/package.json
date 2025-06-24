@@ -1,9 +1,0 @@
-{
-  "id": "evernote",
-  "name": "Evernote",
-  "version": "1.3.2",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://www.evernote.com/Login.action"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "id": "quora",
-  "name": "Quora",
-  "version": "1.0.0",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://www.quora.com"
-  }
-}

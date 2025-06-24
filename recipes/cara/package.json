@@ -1,9 +1,0 @@
-{
-  "id": "cara",
-  "name": "Cara",
-  "version": "1.0.0",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://cara.app"
-  }
-}

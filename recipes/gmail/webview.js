@@ -33,7 +33,9 @@ module.exports = Easychat => {
             if (unreadCount.includes(':')) {
               const counts = unreadCount
                 .split(':')
-                .map(s => Easychat.safeParseInt(s.replaceAll(/[^\p{N}]/gu, '')));
+                .map(s =>
+                  Easychat.safeParseInt(s.replaceAll(/[^\p{N}]/gu, '')),
+                );
               countImportant = counts[0];
               countNonImportant = counts[1] - counts[0];
             } else {

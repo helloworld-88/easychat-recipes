@@ -1,9 +1,0 @@
-{
-  "id": "onenote",
-  "name": "OneNote",
-  "version": "1.4.1",
-  "license": "MIT",
-  "config": {
-    "serviceURL": "https://onenote.com"
-  }
-}
